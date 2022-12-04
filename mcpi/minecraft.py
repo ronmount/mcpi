@@ -282,6 +282,10 @@ class Minecraft:
         self.player = CmdPlayer(connection)
         self.events = CmdEvents(connection)
 
+    def auth(self, name):
+        """ attach player by nickname """
+        return int(self.conn.sendReceive(b"player.auth"), name)
+
     def getBlock(self, *args):
         """Get block (x,y,z) => id:int"""
         return int(self.conn.sendReceive(b"world.getBlock", intFloor(args)))
