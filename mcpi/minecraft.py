@@ -284,7 +284,7 @@ class Minecraft:
 
     def auth(self, name):
         """ attach player by nickname """
-        return int(self.conn.sendReceive(b"player.auth"), name)
+        return self.conn.sendReceive(b"player.auth", name)
 
     def getBlock(self, *args):
         """Get block (x,y,z) => id:int"""
